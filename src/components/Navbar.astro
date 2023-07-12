@@ -1,5 +1,7 @@
-<main class='md:px-12 flex justify-between h-[50px] items-center'>
-	<h2 class='font-bold text-xl'>Laurent. 👋</h2>
+<main
+	class='md:px-12 flex justify-between h-[50px] items-center fixed top-0 left-0 right-0 bg-white bg-opacity-60 pt-3'
+>
+	<h2 id='logo' class='font-bold text-xl hover:cursor-pointer'>Laurent. 👋</h2>
 
 	<ul class='flex gap-6'>
 		<li class='hover:cursor-pointer hover:underline text-sm md:text-base'>
@@ -15,11 +17,15 @@
 </main>
 
 <script>
+	const logoBtn = document.getElementById('logo');
 	const projectBtns = document.getElementsByTagName('li');
+
+	const hero = document.getElementById('hero');
 	const projects = document.getElementById('projects');
 	const skills = document.getElementById('skills');
 	const contact = document.getElementById('contact');
 
+	logoBtn?.addEventListener('click', () => hero?.scrollIntoView());
 	projectBtns[0]?.addEventListener('click', () => projects?.scrollIntoView());
 	projectBtns[1]?.addEventListener('click', () => skills?.scrollIntoView());
 	projectBtns[2]?.addEventListener('click', () => contact?.scrollIntoView());

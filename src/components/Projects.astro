@@ -13,64 +13,128 @@ interface Project {
 	link: string;
 }
 
-const projects: Project[] = [
-	{
-		role: 'Javascript, HTML & CSS',
-		title: 'TodoSide',
-		position: 0,
-		span: 3,
-		mdSpan: 1,
-		link: 'https://github.com/laurentcodes/todoside',
-	},
-	{
-		role: 'NextJS, Tailwind, HTML, MongoDB',
-		title: 'Infinix Spinner',
-		position: 1,
-		span: 3,
-		mdSpan: 2,
-		link: 'https://github.com/laurentcodes/infinix-spinner',
-	},
-	{
-		role: 'NestJS, TypeScript, SQLite',
-		title: 'Car Value API',
-		position: 2,
-		span: 3,
-		mdSpan: 1,
-		link: 'https://github.com/laurentcodes/car-value-estimate',
-	},
-	{
-		role: 'Flutter, Dart',
-		title: 'Weather App',
-		position: 3,
-		span: 3,
-		mdSpan: 1,
-		link: 'https://github.com/laurentcodes/weather-app',
-	},
-	{
-		title: 'See all projects.',
-		position: 4,
-		span: 3,
-		mdSpan: 1,
-		img: arrow,
-		link: 'https://github.com/laurentcodes',
-	},
+const colors = [
+	'#5643C1',
+	'#F2994A',
+	'#8FCEF8',
+	'#FBC603',
+	'#80ED98',
+	'#2F80ED',
 ];
 ---
 
 <main id='projects' class='h-screen flex justify-center items-center projects'>
 	<div class='w-full md:w-[50%] grid grid-cols-3 gap-3'>
-		{
-			projects.map((project) => (
-				<Card
-					role={project.role}
-					title={project.title}
-					position={project.position}
-					span={project.span}
-					mdSpan={project.mdSpan}
-					img={project.img}
-					link={project.link}
+		<main
+			class='bg-[#5643C1] flex flex-col col-span-3 md:col-span-1 gap-3 rounded-md p-6 md:h-[150px] text-white'
+		>
+			<p class='text-base md:text-xs'>Javascript, HTML & CSS</p>
+			<p class='text-3xl md:text-2xl'>
+				<a
+					class='hover:underline'
+					href='https://github.com/laurentcodes/todoside'
+					target='_blank'
+				>
+					TodoSide
+				</a>
+			</p>
+		</main>
+
+		<main
+			class='bg-[#F2994A] flex flex-col col-span-3 md:col-span-2 gap-3 rounded-md p-6 md:h-[150px] text-white'
+		>
+			<p class='text-base md:text-xs'>NextJS, Tailwind, HTML, MongoDB</p>
+			<p class='text-3xl md:text-2xl'>
+				<a
+					class='hover:underline'
+					href='https://github.com/laurentcodes/infinix-spinner'
+					target='_blank'
+				>
+					Infinix Spinner
+				</a>
+			</p>
+		</main>
+
+		<main
+			class='bg-[#80ED98] flex flex-col col-span-3 md:col-span-2 gap-3 rounded-md p-6 md:h-[150px] text-white'
+		>
+			<p class='text-base md:text-xs'>Javascript, HTML & CSS, API</p>
+			<p class='text-3xl md:text-2xl'>
+				<a
+					class='hover:underline'
+					href='https://github.com/laurentcodes/currency-converter'
+					target='_blank'
+				>
+					Currency Converter
+				</a>
+			</p>
+		</main>
+
+		<main
+			class='bg-[#8FCEF8] flex flex-col col-span-3 md:col-span-1 gap-3 rounded-md p-6 md:h-[150px] text-white'
+		>
+			<p class='text-base md:text-xs'>NestJS, TypeScript, SQLite</p>
+			<p class='text-3xl md:text-2xl'>
+				<a
+					class='hover:underline'
+					href='https://github.com/laurentcodes/car-value-estimate'
+					target='_blank'
+				>
+					Car Value API
+				</a>
+			</p>
+		</main>
+
+		<main
+			class='bg-[#FBC603] flex flex-col col-span-3 md:col-span-1 gap-3 rounded-md p-6 md:h-[150px] text-white'
+		>
+			<p class='text-base md:text-xs'>Flutter, Dart</p>
+			<p class='text-3xl md:text-2xl'>
+				<a
+					class='hover:underline'
+					href='https://github.com/laurentcodes/weather-app'
+					target='_blank'
+				>
+					Weather App
+				</a>
+			</p>
+		</main>
+
+		<main
+			class='bg-[#03045e] flex flex-col col-span-3 md:col-span-1 gap-3 rounded-md p-6 md:h-[150px] text-white'
+		>
+			<p class='text-base md:text-xs'>Express, MongoDB, Amazon S3</p>
+			<p class='text-3xl md:text-2xl'>
+				<a
+					class='hover:underline'
+					href='https://github.com/laurentcodes/tech-assessment-social-api'
+					target='_blank'
+				>
+					Social API
+				</a>
+			</p>
+		</main>
+
+		<main
+			class='bg-[#2F80ED] flex flex-col col-span-3 md:col-span-1 gap-3 rounded-md p-6 md:h-[150px] text-white'
+		>
+			<p class='text-3xl md:text-2xl'>
+				<a
+					class='hover:underline'
+					href='https://github.com/laurentcodes'
+					target='_blank'
+				>
+					See all projects.
+				</a>
+			</p>
+
+			<span class='w-full'>
+				<img
+					class='w-12 h-12 md:w-8 md:h-8 float-right rounded-full border'
+					src={arrow}
+					alt='Icon'
 				/>
-			))
-		}
+			</span>
+		</main>
 	</div>
 </main>

@@ -9,13 +9,29 @@ export interface Props {
 	link: string;
 }
 
-const colors = ['#5643C1', '#F2994A', '#8FCEF8', '#FBC603', '#2F80ED'];
+const colors = [
+	'#5643C1',
+	'#F2994A',
+	'#8FCEF8',
+	'#FBC603',
+	'#80ED98',
+	'#2F80ED',
+];
+
+// colors: {
+// 				projectGreen: '#80ED98',
+// 				projectBlue: '#2F80ED',
+// 				projectSky: '#8FCEF8',
+// 				projectYellow: '#FBC603',
+// 				projectOrange: '#F2994A',
+// 				projectPurple: '#5643C1',
+// 			},
 
 const { role, title, position, span, mdSpan, img, link } = Astro.props;
 ---
 
 <main
-	class={`bg-[${colors[position]}] flex flex-col col-span-${span} md:col-span-${mdSpan} gap-3 rounded-md p-6 md:h-[150px] text-white`}
+	class={`bg-${colors[position]} flex flex-col col-span-${span} md:col-span-${mdSpan} gap-3 rounded-md p-6 md:h-[150px] text-white`}
 >
 	{role && <p class='text-base md:text-xs'>{role}</p>}
 	<p class='text-3xl md:text-2xl'>
