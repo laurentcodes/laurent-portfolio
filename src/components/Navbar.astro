@@ -1,0 +1,26 @@
+<main class='md:px-12 flex justify-between h-[50px] items-center'>
+	<h2 class='font-bold text-xl'>Laurent. 👋</h2>
+
+	<ul class='flex gap-6'>
+		<li class='hover:cursor-pointer hover:underline text-sm md:text-base'>
+			Projects
+		</li>
+		<li class='hover:cursor-pointer hover:underline text-sm md:text-base'>
+			Skills
+		</li>
+		<li class='hover:cursor-pointer hover:underline text-sm md:text-base'>
+			Contact
+		</li>
+	</ul>
+</main>
+
+<script>
+	const projectBtns = document.getElementsByTagName('li');
+	const projects = document.getElementById('projects');
+	const skills = document.getElementById('skills');
+	const contact = document.getElementById('contact');
+
+	projectBtns[0]?.addEventListener('click', () => projects?.scrollIntoView());
+	projectBtns[1]?.addEventListener('click', () => skills?.scrollIntoView());
+	projectBtns[2]?.addEventListener('click', () => contact?.scrollIntoView());
+</script>

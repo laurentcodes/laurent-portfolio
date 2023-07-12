@@ -1,81 +1,139 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Navbar from '../components/Navbar.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+
+import memoji1 from '../images/memojis/laurent-memoji-1.svg';
+import memoji2 from '../images/memojis/laurent-memoji-2.svg';
+import memoji3 from '../images/memojis/laurent-memoji-3.svg';
+
+import rectangle from '../images/rectangle.svg';
+
+import github from '../images/logos/github.svg';
+import twitter from '../images/logos/twitter.svg';
+import linkedIn from '../images/logos/linkedIn.svg';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+<Layout title='Laurent.'>
+	<main class=''>
+		<Navbar />
+
+		<div
+			class='flex flex-col-reverse md:flex-row h-[calc(100vh-100px)] justify-around items-center'
+		>
+			<div class='flex flex-col gap-10'>
+				<h2 class='text-5xl font-bold flex items-end md:items-center gap-3'>
+					Oluwasegun Olagunju <span>
+						<img src={rectangle} alt='Yellow Rectangle' />
+					</span>
+				</h2>
+				<p class='text-xl'>FullStack Developer from Lagos, Nigeria</p>
+
+				<ul class='flex gap-4 w-28 h-28'>
+					<li>
+						<a href='https://github.com/laurentcodes' target='_blank'
+							><img src={github} alt='Github Logo' /></a
+						>
+					</li>
+					<li>
+						<a href='https://twitter.com/laurent__god' target='_blank'
+							><img src={twitter} alt='Twitter Logo' /></a
+						>
+					</li>
+					<li>
+						<a href='https://www.linkedin.com/in/laurentcodes/' target='_blank'>
+							<img src={linkedIn} alt='LinkedIn Logo' /></a
+						>
+					</li>
+				</ul>
+			</div>
+
+			<div
+				class='bg-[#5643C133] rounded-full w-[300px] h-[300px] flex justify-center items-center'
+			>
+				<img
+					class='w-[250px] h-[250px] ml-3'
+					src={memoji1}
+					alt='Laurents Memoji'
+				/>
+			</div>
+		</div>
+
+		<div class='flex flex-col md:flex-row h-screen justify-around items-center'>
+			<div
+				class='bg-[#FBC6034D] rounded-full w-[300px] h-[300px] flex justify-center items-center'
+			>
+				<img class='w-[250px] h-[250px]' src={memoji2} alt='Laurents Memoji' />
+			</div>
+
+			<div class='flex flex-col gap-6 md:w-[500px]'>
+				<h2 class='text-3xl md:text-5xl font-bold'>
+					Specialist in building digital products
+				</h2>
+
+				<p class='md:text-xl text-gray-500'>
+					Final year students at UGM, have made several projects both UI/UX
+					Design or website
+				</p>
+
+				<p class='md:text-xl text-gray-500'>
+					Very organized person, always comfortable learning new things, always
+					practicing, problem solver. NBA fans, Outdoor Activity, Extrovert
+					person, interactive.
+				</p>
+			</div>
+		</div>
+
+		<Projects />
+
+		<Skills />
+
+		<div
+			id='contact'
+			class='flex flex-col h-screen justify-center items-center gap-6 text-center'
+		>
+			<div
+				class='bg-[#FBC603] rounded-full w-[300px] h-[300px] flex justify-center items-center'
+			>
+				<img
+					class='w-[250px] h-[250px] ml-3'
+					src={memoji3}
+					alt='Laurents Memoji'
+				/>
+			</div>
+
+			<h3 class='text-4xl'>Have a great idea?</h3>
+
+			<ul class='flex gap-4 w-28 h-28'>
+				<li>
+					<a href='https://github.com/laurentcodes' target='_blank'
+						><img src={github} alt='Github Logo' /></a
+					>
+				</li>
+				<li>
+					<a href='https://twitter.com/laurent__god' target='_blank'
+						><img src={twitter} alt='Twitter Logo' /></a
+					>
+				</li>
+				<li>
+					<a href='https://www.linkedin.com/in/laurentcodes/' target='_blank'>
+						<img src={linkedIn} alt='LinkedIn Logo' /></a
+					>
+				</li>
+			</ul>
+		</div>
 	</main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
+	:global(html) {
+		scroll-behavior: smooth;
 	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
+
+	@media (prefers-reduced-motion: reduce) {
+		:global(html) {
+			scroll-behavior: auto;
+		}
 	}
 </style>

@@ -1,0 +1,76 @@
+---
+import Card from './Card.astro';
+
+import arrow from '../images/right-arrow.svg';
+
+interface Project {
+	role?: string;
+	title: string;
+	position: number;
+	span: number;
+	mdSpan: number;
+	img?: string;
+	link: string;
+}
+
+const projects: Project[] = [
+	{
+		role: 'Javascript, HTML & CSS',
+		title: 'TodoSide',
+		position: 0,
+		span: 3,
+		mdSpan: 1,
+		link: 'https://github.com/laurentcodes/todoside',
+	},
+	{
+		role: 'NextJS, Tailwind, HTML, MongoDB',
+		title: 'Infinix Spinner',
+		position: 1,
+		span: 3,
+		mdSpan: 2,
+		link: 'https://github.com/laurentcodes/infinix-spinner',
+	},
+	{
+		role: 'NestJS, TypeScript, SQLite',
+		title: 'Car Value API',
+		position: 2,
+		span: 3,
+		mdSpan: 1,
+		link: 'https://github.com/laurentcodes/car-value-estimate',
+	},
+	{
+		role: 'Flutter, Dart',
+		title: 'Weather App',
+		position: 3,
+		span: 3,
+		mdSpan: 1,
+		link: 'https://github.com/laurentcodes/weather-app',
+	},
+	{
+		title: 'See all projects.',
+		position: 4,
+		span: 3,
+		mdSpan: 1,
+		img: arrow,
+		link: 'https://github.com/laurentcodes',
+	},
+];
+---
+
+<main id='projects' class='h-screen flex justify-center items-center projects'>
+	<div class='w-full md:w-[50%] grid grid-cols-3 gap-3'>
+		{
+			projects.map((project) => (
+				<Card
+					role={project.role}
+					title={project.title}
+					position={project.position}
+					span={project.span}
+					mdSpan={project.mdSpan}
+					img={project.img}
+					link={project.link}
+				/>
+			))
+		}
+	</div>
+</main>

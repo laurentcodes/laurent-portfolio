@@ -1,0 +1,71 @@
+---
+import underline from '/images/wavy-underline.svg';
+
+interface Skill {
+	area: string;
+	items: string[];
+}
+
+const skills: Skill[] = [
+	{ area: 'Front-End Mobile', items: ['Flutter', 'React Native'] },
+	{
+		area: 'Front-End Web',
+		items: [
+			'HTML & CSS',
+			'Javascript',
+			'React.js',
+			'NextJS',
+			'Astro',
+			'Tailwind',
+			'Bootstrap',
+		],
+	},
+	{ area: 'CMS', items: ['Wordpress', 'Sanity.io'] },
+	{
+		area: 'Back-End',
+		items: ['NestJS', 'Firebase', 'Express.jS', 'TypeScript'],
+	},
+	{ area: 'Database', items: ['MongoDB', 'MySQL', 'PostgreSQL', 'SQLite'] },
+	{ area: 'Version Control', items: ['Git'] },
+];
+---
+
+<main
+	id='skills'
+	class='p-6 h-screen flex flex-col justify-around mt-12 md:mt-0'
+>
+	<h2 class='text-center text-4xl relative w-full'>
+		<p class='text-[#FBC603] font-bold'>Work Hard.</p>
+		<p>Play Hard</p>
+	</h2>
+
+	<div class='flex flex-col justify-center my-12 md:px-24'>
+		<div class='flex flex-col justify-center items-center mb-6'>
+			<p class='text-lg'>Skills</p>
+
+			<img src={underline} alt='' />
+		</div>
+
+		<div class='mt-6 md:mt-0'>
+			{
+				skills.map((skill) => (
+					<div class='flex flex-col md:flex-row w-full my-3 md:justify-between items-center'>
+						<h2 class='font-bold text-md'>{skill.area}</h2>
+
+						<span class='flex flex-col md:flex-row items-center md:gap-2'>
+							{skill.items.map((lang) => (
+								<p class='text-gray-400 font-bold hover:text-sky-600'>{lang}</p>
+							))}
+						</span>
+					</div>
+				))
+			}
+		</div>
+
+		<a
+			class='bg-violet-500 rounded-lg text-white font-bold text-center p-3 w-[85%] md:w-48 self-center mt-6 transition hover:bg-violet-400 ease-in duration-300'
+			href='https://drive.google.com/file/d/1-7GK2iKPAyZIvo3B5Y18FeYnXs-4wyOx/view?usp=sharing'
+			target='_blank'>View Resume</a
+		>
+	</div>
+</main>
