@@ -15,6 +15,15 @@ const { title } = Astro.props;
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/svg+xml' href='/favicon.ico' />
 		<meta name='generator' content={Astro.generator} />
+
+		<meta property='og:title' content='Laurent. 👋' />
+		<meta property='og:description' content="Laurent's Portfolio" />
+		<meta
+			property='og:image'
+			content='https://laurentcodes.xyz/_astro/laurent-memoji-1.d4b9bfae.svg'
+		/>
+		<meta property='og:url' content='https://laurentcodes.xyz/' />
+
 		<title>{title}</title>
 	</head>
 	<body class='p-6 flex flex-col'>
