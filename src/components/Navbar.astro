@@ -5,6 +5,9 @@
 
 	<ul class='flex gap-6'>
 		<li class='hover:cursor-pointer hover:underline text-sm md:text-base'>
+			About
+		</li>
+		<li class='hover:cursor-pointer hover:underline text-sm md:text-base'>
 			Projects
 		</li>
 		<li class='hover:cursor-pointer hover:underline text-sm md:text-base'>
@@ -21,12 +24,14 @@
 	const projectBtns = document.getElementsByTagName('li');
 
 	const hero = document.getElementById('hero');
+	const about = document.getElementById('about');
 	const projects = document.getElementById('projects');
 	const skills = document.getElementById('skills');
 	const contact = document.getElementById('contact');
 
 	logoBtn?.addEventListener('click', () => hero?.scrollIntoView());
-	projectBtns[0]?.addEventListener('click', () => projects?.scrollIntoView());
-	projectBtns[1]?.addEventListener('click', () => skills?.scrollIntoView());
-	projectBtns[2]?.addEventListener('click', () => contact?.scrollIntoView());
+	projectBtns[0]?.addEventListener('click', () => about?.scrollIntoView());
+	projectBtns[1]?.addEventListener('click', () => projects?.scrollIntoView());
+	projectBtns[2]?.addEventListener('click', () => skills?.scrollIntoView());
+	projectBtns[3]?.addEventListener('click', () => contact?.scrollIntoView());
 </script>

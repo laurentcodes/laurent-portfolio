@@ -23,7 +23,7 @@ const skills: Skill[] = [
 	{ area: 'CMS', items: ['Wordpress', 'Sanity.io'] },
 	{
 		area: 'Back-End',
-		items: ['NestJS', 'Firebase', 'Express.jS', 'TypeScript'],
+		items: ['NestJS', 'Firebase', 'Express.Js', 'TypeScript'],
 	},
 	{ area: 'Database', items: ['MongoDB', 'MySQL', 'PostgreSQL', 'SQLite'] },
 	{ area: 'Version Control', items: ['Git'] },
@@ -54,7 +54,9 @@ const skills: Skill[] = [
 
 						<span class='flex flex-col md:flex-row items-center md:gap-2'>
 							{skill.items.map((lang) => (
-								<p class='text-gray-400 font-bold hover:text-sky-600'>{lang}</p>
+								<p class='transition text-gray-400 font-bold hover:text-sky-600 ease-linear duration-300'>
+									{lang}
+								</p>
 							))}
 						</span>
 					</div>
