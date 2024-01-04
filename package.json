@@ -10,7 +10,6 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/netlify": "^4.1.0",
 		"@astrojs/react": "^3.0.9",
 		"@astrojs/tailwind": "^4.0.0",
 		"@fontsource/roboto-mono": "^5.0.16",
