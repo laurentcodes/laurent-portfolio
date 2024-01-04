@@ -1,0 +1,37 @@
+---
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
+
+import { client } from '../../../tina/__generated__/client';
+
+import '@fontsource/roboto-mono';
+
+import '../../styles/cms.css';
+
+import Layout from '../../layouts/Layout.astro';
+
+const { post } = Astro.params;
+
+const singlePostRes = await client.queries.post({ relativePath: `${post}.md` });
+const singlePost = singlePostRes.data.post;
+---
+
+<Layout title={`Laurent. | Blog - ${singlePost.title}`}>
+	<main class='md:px-36 md:py-12 flex flex-col justify-between cms-content'>
+		<TinaMarkdown content={singlePost.body} />
+
+		{
+			singlePost.tags && (
+				<div class='flex'>
+					<p class='font-bold mr-2'>TAGS:</p>
+
+					{singlePost.tags.map((tag, index) => (
+						<p class='text-blue-400'>
+							{index ? ',' : ''}
+							{tag}
+						</p>
+					))}
+				</div>
+			)
+		}
+	</main>
+</Layout>

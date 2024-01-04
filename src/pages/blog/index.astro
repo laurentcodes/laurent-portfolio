@@ -1,0 +1,52 @@
+---
+import { client } from '../../../tina/__generated__/client';
+
+import Layout from '../../layouts/Layout.astro';
+
+const postsRes = await client.queries.postConnection();
+
+const posts = postsRes.data.postConnection.edges?.map((post) => {
+	return {
+		title: post?.node?.title,
+		summary: post?.node?.summary.children[0].children[0].text,
+		slug: post?.node?._sys.filename,
+		tags: post?.node?.tags,
+		author: post?.node?.author,
+	};
+});
+---
+
+<Layout title='Laurent. | Blog'>
+	<main class='md:px-24 md:py-6'>
+		{
+			posts?.map((post) => (
+				<div class='flex flex-col py-2'>
+					<span class='flex justify-between'>
+						<h3 class='font-bold'>
+							<a href={`/blog/${post.slug}`}>{post.title}</a>
+						</h3>
+						<p class='text-purple-500'>
+							<a href={`${post.author?.link}`} target='_blank'>
+								{post.author?.name}
+							</a>
+						</p>
+					</span>
+					<p class='text-gray-400'>{post.summary}</p>
+
+					{post.tags && (
+						<span class='flex text-sm'>
+							<p class='italic mr-2'>tags:</p>
+
+							{post.tags.map((tag, index) => (
+								<p class='text-blue-400'>
+									{index ? ',' : ''}
+									{tag}
+								</p>
+							))}
+						</span>
+					)}
+				</div>
+			))
+		}
+	</main>
+</Layout>
