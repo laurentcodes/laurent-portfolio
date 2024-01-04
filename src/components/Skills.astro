@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import underline from '../images/wavy-underline.svg';
 
 interface Skill {
@@ -43,7 +45,7 @@ const skills: Skill[] = [
 		<div class='flex flex-col justify-center items-center mb-6'>
 			<p class='text-lg'>Skills</p>
 
-			<img src={underline} alt='' />
+			<Image src={underline} alt='' />
 		</div>
 
 		<div class='mt-6 md:mt-0'>

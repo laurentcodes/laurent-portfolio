@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import Layout from '../layouts/Layout.astro';
 import Projects from '../components/Projects.astro';
 import Skills from '../components/Skills.astro';
@@ -22,7 +24,7 @@ import linkedIn from '../images/logos/linkedIn.svg';
 		<div class='flex flex-col gap-10'>
 			<h2 class='text-5xl font-bold flex items-end md:items-center gap-3'>
 				Oluwasegun Olagunju <span>
-					<img src={rectangle} alt='Yellow Rectangle' />
+					<Image src={rectangle} alt='Yellow Rectangle' />
 				</span>
 			</h2>
 			<p class='text-xl'>Developer from Lagos, Nigeria</p>
@@ -30,17 +32,17 @@ import linkedIn from '../images/logos/linkedIn.svg';
 			<ul class='flex gap-4 w-28 h-28'>
 				<li>
 					<a href='https://github.com/laurentcodes' target='_blank'
-						><img src={github} alt='Github Logo' /></a
+						><Image src={github} alt='Github Logo' /></a
 					>
 				</li>
 				<li>
 					<a href='https://twitter.com/laurent__god' target='_blank'
-						><img src={twitter} alt='Twitter Logo' /></a
+						><Image src={twitter} alt='Twitter Logo' /></a
 					>
 				</li>
 				<li>
 					<a href='https://www.linkedin.com/in/laurentcodes/' target='_blank'>
-						<img src={linkedIn} alt='LinkedIn Logo' /></a
+						<Image src={linkedIn} alt='LinkedIn Logo' /></a
 					>
 				</li>
 			</ul>
@@ -49,7 +51,7 @@ import linkedIn from '../images/logos/linkedIn.svg';
 		<div
 			class='bg-[#5643C133] rounded-full w-[300px] h-[300px] flex justify-center items-center mt-[50px] md:mt-0'
 		>
-			<img
+			<Image
 				class='w-[250px] h-[250px] ml-3'
 				src={memoji1}
 				alt='Laurents Memoji'
@@ -64,7 +66,7 @@ import linkedIn from '../images/logos/linkedIn.svg';
 		<div
 			class='bg-[#FBC6034D] rounded-full w-[300px] h-[300px] flex justify-center items-center mb-12 md:mb-0'
 		>
-			<img class='w-[250px] h-[250px]' src={memoji2} alt='Laurents Memoji' />
+			<Image class='w-[250px] h-[250px]' src={memoji2} alt='Laurents Memoji' />
 		</div>
 
 		<div class='flex flex-col gap-6 md:w-[500px]'>
@@ -99,7 +101,7 @@ import linkedIn from '../images/logos/linkedIn.svg';
 		<div
 			class='bg-[#FBC603] rounded-full w-[300px] h-[300px] flex justify-center items-center'
 		>
-			<img
+			<Image
 				class='w-[250px] h-[250px] ml-3'
 				src={memoji3}
 				alt='Laurents Memoji'
@@ -111,17 +113,17 @@ import linkedIn from '../images/logos/linkedIn.svg';
 		<ul class='flex gap-4 w-28 h-28'>
 			<li>
 				<a href='https://github.com/laurentcodes' target='_blank'
-					><img src={github} alt='Github Logo' /></a
+					><Image src={github} alt='Github Logo' /></a
 				>
 			</li>
 			<li>
 				<a href='https://twitter.com/laurent__god' target='_blank'
-					><img src={twitter} alt='Twitter Logo' /></a
+					><Image src={twitter} alt='Twitter Logo' /></a
 				>
 			</li>
 			<li>
 				<a href='https://www.linkedin.com/in/laurentcodes/' target='_blank'>
-					<img src={linkedIn} alt='LinkedIn Logo' /></a
+					<Image src={linkedIn} alt='LinkedIn Logo' /></a
 				>
 			</li>
 		</ul>
