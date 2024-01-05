@@ -24,11 +24,13 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
 });
 
 const formattedDate = dateFormatter.format(originalDate);
+
+console.log(singlePost.summary.children[0].children[0].text);
 ---
 
 <Layout
 	title={`Laurent. | Blog - ${singlePost.title}`}
-	description={singlePost.summary}
+	description={singlePost.summary.children[0].children[0].text}
 	url={url}
 >
 	<main
