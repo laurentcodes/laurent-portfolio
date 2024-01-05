@@ -15,4 +15,4 @@ this will also be my personal repository and knowledge base for things i learn a
 
 also, sorry in advance but my content could be a little scattered as i'm always so interested in so many things, but the major focus would be on software development.
 
-once again, welcome to my blog
+once again, **welcome to my blog.**

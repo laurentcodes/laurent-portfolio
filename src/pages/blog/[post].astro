@@ -3,6 +3,8 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 import { client } from '../../../tina/__generated__/client';
 
+import { formatDate } from '../../utils/formatDate';
+
 import '@fontsource/roboto-mono';
 
 import '../../styles/cms.css';
@@ -16,16 +18,7 @@ const url = Astro.url.href;
 const singlePostRes = await client.queries.post({ relativePath: `${post}.md` });
 const singlePost = singlePostRes.data.post;
 
-const originalDate = new Date(singlePost.posted);
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-	month: 'long',
-	day: 'numeric',
-	year: 'numeric'
-});
-
-const formattedDate = dateFormatter.format(originalDate);
-
-console.log(singlePost.summary.children[0].children[0].text);
+const formattedDate = formatDate(singlePost.posted);
 ---
 
 <Layout

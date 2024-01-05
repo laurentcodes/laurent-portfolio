@@ -3,9 +3,11 @@ import tailwind from '@astrojs/tailwind';
 import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
-	integrations: [tailwind(), react()],
-	output: 'server',
-	adapter: netlify(),
+  integrations: [tailwind(), react(), partytown()],
+  output: 'server',
+  adapter: netlify()
 });
