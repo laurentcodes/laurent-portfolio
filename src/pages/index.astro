@@ -33,27 +33,39 @@ import linkedIn from '../images/logos/linkedIn.svg';
 			</h2>
 			<p class='text-xl'>Developer from Lagos, Nigeria</p>
 
-			<ul class='flex gap-4 w-28 h-28'>
+			<ul
+				class='flex gap-4 w-36 justify-center dark:bg-white dark:p-1 dark:rounded'
+			>
 				<li>
 					<a href='https://github.com/laurentcodes' target='_blank'
-						><Image src={github} alt='Github Logo' /></a
+						><Image src={github} alt='Github Logo' width={28} height={28} /></a
 					>
 				</li>
 				<li>
 					<a href='https://twitter.com/laurent__god' target='_blank'
-						><Image src={twitter} alt='Twitter Logo' /></a
+						><Image
+							src={twitter}
+							alt='Twitter Logo'
+							width={28}
+							height={28}
+						/></a
 					>
 				</li>
 				<li>
 					<a href='https://www.linkedin.com/in/laurentcodes/' target='_blank'>
-						<Image src={linkedIn} alt='LinkedIn Logo' /></a
+						<Image
+							src={linkedIn}
+							alt='LinkedIn Logo'
+							width={28}
+							height={28}
+						/></a
 					>
 				</li>
 			</ul>
 		</div>
 
 		<div
-			class='bg-[#5643C133] rounded-full w-[300px] h-[300px] flex justify-center items-center mt-[50px] md:mt-0'
+			class='bg-[#5643C133] dark:bg-[#5643c192] rounded-full w-[300px] h-[300px] flex justify-center items-center mt-[50px] md:mt-0'
 		>
 			<Image
 				class='w-[250px] h-[250px] ml-3'
@@ -68,7 +80,7 @@ import linkedIn from '../images/logos/linkedIn.svg';
 		class='flex flex-col md:h-screen md:flex-row justify-around items-center mb-12 md:mb-0'
 	>
 		<div
-			class='bg-[#FBC6034D] rounded-full w-[300px] h-[300px] flex justify-center items-center mb-12 md:mb-0'
+			class='bg-[#FBC6034D] dark:bg-[#fbc50370] rounded-full w-[300px] h-[300px] flex justify-center items-center mb-12 md:mb-0'
 		>
 			<Image class='w-[250px] h-[250px]' src={memoji2} alt='Laurents Memoji' />
 		</div>
@@ -114,20 +126,22 @@ import linkedIn from '../images/logos/linkedIn.svg';
 
 		<h3 class='text-4xl'>Have a great idea?</h3>
 
-		<ul class='flex gap-4 w-28 h-28'>
+		<ul
+			class='flex gap-4 w-36 justify-center dark:bg-white dark:p-1 dark:rounded'
+		>
 			<li>
 				<a href='https://github.com/laurentcodes' target='_blank'
-					><Image src={github} alt='Github Logo' /></a
+					><Image src={github} alt='Github Logo' width={28} height={28} /></a
 				>
 			</li>
 			<li>
 				<a href='https://twitter.com/laurent__god' target='_blank'
-					><Image src={twitter} alt='Twitter Logo' /></a
+					><Image src={twitter} alt='Twitter Logo' width={28} height={28} /></a
 				>
 			</li>
 			<li>
 				<a href='https://www.linkedin.com/in/laurentcodes/' target='_blank'>
-					<Image src={linkedIn} alt='LinkedIn Logo' /></a
+					<Image src={linkedIn} alt='LinkedIn Logo' width={28} height={28} /></a
 				>
 			</li>
 		</ul>
