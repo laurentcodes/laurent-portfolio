@@ -16,7 +16,11 @@ const posts = postsRes.data.postConnection.edges?.map((post) => {
 });
 ---
 
-<Layout title='Laurent. | Blog'>
+<Layout
+	title='Laurent. | Blog'
+	description="Laurent's Blog"
+	url='https://laurentcodes.xyz/blog/'
+>
 	<main class='md:px-24 md:py-6'>
 		{
 			posts?.length === 0 && (

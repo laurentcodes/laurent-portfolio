@@ -11,6 +11,8 @@ import Layout from '../../layouts/Layout.astro';
 
 const { post } = Astro.params;
 
+const url = Astro.url.href;
+
 const singlePostRes = await client.queries.post({ relativePath: `${post}.md` });
 const singlePost = singlePostRes.data.post;
 
@@ -24,7 +26,11 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
 const formattedDate = dateFormatter.format(originalDate);
 ---
 
-<Layout title={`Laurent. | Blog - ${singlePost.title}`}>
+<Layout
+	title={`Laurent. | Blog - ${singlePost.title}`}
+	description={singlePost.summary}
+	url={url}
+>
 	<main
 		class='md:px-36 md:py-12 flex flex-col h-[calc(100vh-150px)] justify-between'
 	>
