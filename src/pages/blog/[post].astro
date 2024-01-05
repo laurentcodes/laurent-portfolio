@@ -13,11 +13,29 @@ const { post } = Astro.params;
 
 const singlePostRes = await client.queries.post({ relativePath: `${post}.md` });
 const singlePost = singlePostRes.data.post;
+
+const originalDate = new Date(singlePost.posted);
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+	month: 'long',
+	day: 'numeric',
+	year: 'numeric'
+});
+
+const formattedDate = dateFormatter.format(originalDate);
 ---
 
 <Layout title={`Laurent. | Blog - ${singlePost.title}`}>
-	<main class='md:px-36 md:py-12 flex flex-col justify-between cms-content'>
-		<TinaMarkdown content={singlePost.body} />
+	<main
+		class='md:px-36 md:py-12 flex flex-col h-[calc(100vh-150px)] justify-between'
+	>
+		<div>
+			<h3 class='text-red-500 text-3xl font-bold'>{singlePost.title}</h3>
+			<p class='text-gray-500'>{formattedDate}</p>
+		</div>
+
+		<div class='cms-content my-12'>
+			<TinaMarkdown content={singlePost.body} />
+		</div>
 
 		{
 			singlePost.tags && (
