@@ -19,7 +19,7 @@
 	}
 
 	p {
-		margin-top: 6px;
+		margin: 6px 0px;
 	}
 
 	p:has(> img) {
