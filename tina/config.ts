@@ -13,13 +13,13 @@ export default defineConfig({
 
 	build: {
 		outputFolder: 'admin',
-		publicFolder: 'public',
+		publicFolder: 'public'
 	},
 	media: {
 		tina: {
 			mediaRoot: '',
-			publicFolder: 'public',
-		},
+			publicFolder: 'public'
+		}
 	},
 	// See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
 	schema: {
@@ -34,25 +34,25 @@ export default defineConfig({
 						name: 'title',
 						label: 'Title',
 						isTitle: true,
-						required: true,
+						required: true
 					},
 					{
 						type: 'rich-text',
 						name: 'body',
 						label: 'Body',
-						isBody: true,
+						isBody: true
 					},
 					{
 						type: 'rich-text',
 						name: 'summary',
 						label: 'Summary',
-						required: true,
+						required: true
 					},
 					{
 						type: 'reference',
 						name: 'author',
 						label: 'Author',
-						collections: ['author'],
+						collections: ['author']
 					},
 					{
 						type: 'string',
@@ -63,17 +63,24 @@ export default defineConfig({
 							{ value: 'general', label: 'General' },
 							{ value: 'javascript', label: 'JavaScript' },
 							{ value: 'react', label: 'React' },
+							{ value: 'astro', label: 'Astro' },
+							{ value: 'react-native', label: 'React Native' },
+							{ value: 'mongo-db', label: 'Mongo DB' },
 							{ value: 'update', label: 'Update' },
-							{ value: 'guide', label: 'Guide' },
-						],
+							{ value: 'development', label: 'Development' },
+							{ value: 'tips', label: 'Tips' },
+							{ value: 'fix', label: 'Fix' },
+							{ value: 'issue', label: 'Issue' },
+							{ value: 'guide', label: 'Guide' }
+						]
 					},
 					{
 						type: 'datetime',
 						name: 'posted',
 						label: 'Posted',
-						required: true,
-					},
-				],
+						required: true
+					}
+				]
 			},
 			{
 				name: 'author',
@@ -84,15 +91,15 @@ export default defineConfig({
 						type: 'string',
 						name: 'name',
 						label: 'Name',
-						required: true,
+						required: true
 					},
 					{
 						type: 'string',
 						name: 'link',
-						label: 'Link',
-					},
-				],
-			},
-		],
-	},
+						label: 'Link'
+					}
+				]
+			}
+		]
+	}
 });
