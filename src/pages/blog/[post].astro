@@ -11,8 +11,6 @@ import Layout from '../../layouts/Layout.astro';
 
 const { post } = Astro.params;
 
-console.log(post);
-
 const singlePostRes = await client.queries.post({ relativePath: `${post}.md` });
 const singlePost = singlePostRes.data.post;
 ---

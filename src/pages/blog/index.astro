@@ -11,13 +11,21 @@ const posts = postsRes.data.postConnection.edges?.map((post) => {
 		summary: post?.node?.summary.children[0].children[0].text,
 		slug: post?.node?._sys.filename,
 		tags: post?.node?.tags,
-		author: post?.node?.author,
+		author: post?.node?.author
 	};
 });
 ---
 
 <Layout title='Laurent. | Blog'>
 	<main class='md:px-24 md:py-6'>
+		{
+			posts?.length === 0 && (
+				<div class='flex justify-center items-center h-[calc(100vh-150px)]'>
+					<h3 class='text-xl font-bold'>No Posts Available Yet</h3>
+				</div>
+			)
+		}
+
 		{
 			posts?.map((post) => (
 				<div class='flex flex-col py-2'>
