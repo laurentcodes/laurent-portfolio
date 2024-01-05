@@ -49,12 +49,6 @@ export default defineConfig({
 						required: true
 					},
 					{
-						type: 'reference',
-						name: 'author',
-						label: 'Author',
-						collections: ['author']
-					},
-					{
 						type: 'string',
 						name: 'tags',
 						label: 'Tags',
@@ -79,24 +73,6 @@ export default defineConfig({
 						name: 'posted',
 						label: 'Posted',
 						required: true
-					}
-				]
-			},
-			{
-				name: 'author',
-				label: 'Authors',
-				path: 'content/authors',
-				fields: [
-					{
-						type: 'string',
-						name: 'name',
-						label: 'Name',
-						required: true
-					},
-					{
-						type: 'string',
-						name: 'link',
-						label: 'Link'
 					}
 				]
 			}

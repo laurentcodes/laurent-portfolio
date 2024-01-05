@@ -13,7 +13,6 @@ const posts = postsRes.data.postConnection.edges?.map((post) => {
 		summary: post?.node?.summary.children[0].children[0].text,
 		slug: post?.node?._sys.filename,
 		tags: post?.node?.tags,
-		author: post?.node?.author,
 		posted: post?.node?.posted
 	};
 });
@@ -36,23 +35,14 @@ const posts = postsRes.data.postConnection.edges?.map((post) => {
 		{
 			posts?.map((post) => (
 				<div class='flex flex-col py-2'>
-					<span class='flex justify-between'>
-						<div>
-							<p class='text-yellow-500 text-sm mb-1'>
-								{formatDate(post?.posted || '')}
-							</p>
+					<p class='text-yellow-500 text-sm mb-1'>
+						{formatDate(post?.posted || '')}
+					</p>
 
-							<h3 class='font-bold hover:text-blue-800 transition-all ease-in duration-150'>
-								<a href={`/blog/${post.slug}`}>{post.title}</a>
-							</h3>
-						</div>
+					<h3 class='font-bold hover:text-blue-800 transition-all ease-in duration-150'>
+						<a href={`/blog/${post.slug}`}>{post.title}</a>
+					</h3>
 
-						<p class='text-purple-500'>
-							<a href={`${post.author?.link}`} target='_blank'>
-								{post.author?.name}
-							</a>
-						</p>
-					</span>
 					<p class='text-gray-400'>{post.summary}</p>
 
 					{post.tags && (

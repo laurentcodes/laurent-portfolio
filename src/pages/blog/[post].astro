@@ -30,6 +30,10 @@ const formattedDate = formatDate(singlePost.posted);
 		class='md:px-36 md:py-12 flex flex-col h-[calc(100vh-150px)] justify-between'
 	>
 		<div>
+			<a href='/blog' class='text-blue-700'>{`<- back`}</a>
+		</div>
+
+		<div>
 			<h3 class='text-red-500 text-3xl font-bold'>{singlePost.title}</h3>
 			<p class='text-gray-500'>{formattedDate}</p>
 		</div>
