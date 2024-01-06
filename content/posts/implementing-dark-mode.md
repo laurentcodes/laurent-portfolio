@@ -14,7 +14,7 @@ posted: 2024-01-06T19:00:00.000Z
 
 after publishing my blog and the introduction post, having dark mode was suggested to me and i jumped right into it, since the site is using tailwind, implementing this was quite straight forward and interesting.
 
-### getting started
+### Getting Started
 
 tailwind has a "class" strategy to easily manage this easily by setting darkMode to class in the tailwind config as below:
 
@@ -27,7 +27,7 @@ module.exports = {
 
 after this; we can setup our project to check for and watch for dark mode changes in the browser and also set the **"dark"** class to our main **html** tag in the project which tailwind uses to manage and toggle the dark: selector class.
 
-### setting up the dark mode watcher
+### Setting Up the Dark Mode Watcher
 
 a rough implementation of a function that checks for the color scheme and sets it accordingly while still watching for changes to the scheme (like switching the device to/from light mode) using the **"window\.matchMedia() API"** is seen below. on astro, this code was added to the **script:inline** tag in the **head** tag of my **Layout.astro** file
 
@@ -59,7 +59,7 @@ const applyDarkMode = () => {
 applyDarkMode();
 ```
 
-### conclusion
+### Conclusion
 
 once this is set in place; we are now set to go ahead and make use of the tailwind **dark:** selector wherever we need such as:
 
