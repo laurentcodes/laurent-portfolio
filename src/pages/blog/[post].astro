@@ -3,7 +3,7 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 import { client } from '../../../tina/__generated__/client';
 
-import { formatDate } from '../../utils/formatDate';
+import { formatDateTime } from '../../utils/formatDate';
 
 import '@fontsource/roboto-mono';
 
@@ -18,7 +18,7 @@ const url = Astro.url.href;
 const singlePostRes = await client.queries.post({ relativePath: `${post}.md` });
 const singlePost = singlePostRes.data.post;
 
-const formattedDate = formatDate(singlePost.posted);
+const formattedDate = formatDateTime(singlePost.posted);
 ---
 
 <Layout
@@ -26,7 +26,7 @@ const formattedDate = formatDate(singlePost.posted);
 	description={singlePost.summary.children[0].children[0].text}
 	url={url}
 >
-	<main class='md:px-36 md:py-12 '>
+	<main class='md:px-36 md:py-12'>
 		<div>
 			<a href='/blog' class='text-blue-700 dark:text-blue-400'>{`<- back`}</a>
 		</div>

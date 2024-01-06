@@ -3,7 +3,7 @@ title: Hello World!
 summary: "welcome to my blog, i plan to do a little bit of writing this year so let's see how it goes \U0001F605\n"
 tags:
   - general
-posted: 2024-01-04T23:00:00.000Z
+posted: 2024-01-05T15:00:00.000Z
 ---
 
 welcome to my blog, i plan to do a little bit of writing this year so let's see how it goes 😅

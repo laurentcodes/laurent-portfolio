@@ -75,7 +75,10 @@ export default defineConfig({
 						type: 'datetime',
 						name: 'posted',
 						label: 'Posted',
-						required: true
+						required: true,
+						ui: {
+							timeFormat: 'HH:mm'
+						}
 					}
 				]
 			}
