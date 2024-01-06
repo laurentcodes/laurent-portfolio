@@ -1,0 +1,68 @@
+---
+title: Implementing Dark Mode
+summary: >
+  implemented a dark mode solution on this website, the explanation is not tied
+  to a framework and can be adapted to work on any javascript framwork with
+  tailwind installed.
+tags:
+  - javascript
+  - tailwind
+  - css
+  - guide
+posted: 2024-01-05T23:00:00.000Z
+---
+
+after publishing my blog and the introduction post, having dark mode was suggested to me and i jumped right into it, since the site is using tailwind, implementing this was quite straight forward and interesting.
+
+### getting started
+
+tailwind has a "class" strategy to easily manage this easily by setting darkMode to class in the tailwind config as below:
+
+```javascript
+module.exports = {
+	darkMode: 'class'
+	// ...
+};
+```
+
+after this; we can setup our project to check for and watch for dark mode changes in the browser and also set the **"dark"** class to our main **html** tag in the project which tailwind uses to manage and toggle the dark: selector class.
+
+### setting up the dark mode watcher
+
+a rough implementation of a function that checks for the color scheme and sets it accordingly while still watching for changes to the scheme (like switching the device to/from light mode) using the **"window\.matchMedia() API"** is seen below. on astro, this code was added to the **script:inline** tag in the **head** tag of my **Layout.astro** file
+
+```javascript
+const applyDarkMode = () => {
+	const applyDark = () => {
+		const applyTheme = () => {
+			if (
+				localStorage.theme === 'dark' ||
+				(!('theme' in localStorage) &&
+					window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		};
+
+		applyTheme();
+
+		window
+			.matchMedia('(prefers-color-scheme: dark)')
+			.addEventListener('change', applyTheme);
+	};
+
+	applyDark();
+};
+
+applyDarkMode();
+```
+
+### conclusion
+
+once this is set in place; we are now set to go ahead and make use of the tailwind **dark:** selector wherever we need such as:
+
+```html
+<main class="bg-white dark:bg-red-500">...</main>
+```

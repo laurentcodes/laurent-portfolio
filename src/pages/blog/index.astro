@@ -7,15 +7,17 @@ import Layout from '../../layouts/Layout.astro';
 
 const postsRes = await client.queries.postConnection();
 
-const posts = postsRes.data.postConnection.edges?.map((post) => {
-	return {
-		title: post?.node?.title,
-		summary: post?.node?.summary.children[0].children[0].text,
-		slug: post?.node?._sys.filename,
-		tags: post?.node?.tags,
-		posted: post?.node?.posted
-	};
-});
+const posts = postsRes.data.postConnection.edges
+	?.map((post: any) => {
+		return {
+			title: post?.node?.title,
+			summary: post?.node?.summary.children[0].children[0].text,
+			slug: post?.node?._sys.filename,
+			tags: post?.node?.tags,
+			posted: post?.node?.posted
+		};
+	})
+	.sort((a, b) => new Date(b.posted).getTime() - new Date(a.posted).getTime());
 ---
 
 <Layout
@@ -34,7 +36,7 @@ const posts = postsRes.data.postConnection.edges?.map((post) => {
 
 		{
 			posts?.map((post) => (
-				<div class='flex flex-col py-2'>
+				<div class='flex flex-col py-3'>
 					<p class='text-yellow-500 text-sm mb-1'>
 						{formatDate(post?.posted || '')}
 					</p>
@@ -43,13 +45,15 @@ const posts = postsRes.data.postConnection.edges?.map((post) => {
 						<a href={`/blog/${post.slug}`}>{post.title}</a>
 					</h3>
 
-					<p class='text-gray-400'>{post.summary}</p>
+					<p class='text-gray-400 md:w-[80%] text-sm md:text-base'>
+						{post.summary}
+					</p>
 
 					{post.tags && (
 						<span class='flex text-sm'>
 							<p class='italic mr-2'>tags:</p>
 
-							{post.tags.map((tag, index) => (
+							{post.tags.map((tag: string, index: number) => (
 								<p class='text-blue-400'>
 									{index ? ',' : ''}
 									{tag}
