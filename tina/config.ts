@@ -28,6 +28,13 @@ export default defineConfig({
 				name: 'post',
 				label: 'Posts',
 				path: 'content/posts',
+				defaultItem: () => {
+					return {
+						title: 'New Post',
+						posted: new Date().toISOString(),
+						published: false
+					};
+				},
 				fields: [
 					{
 						type: 'string',
@@ -60,6 +67,7 @@ export default defineConfig({
 							{ value: 'astro', label: 'Astro' },
 							{ value: 'html', label: 'HTML' },
 							{ value: 'css', label: 'CSS' },
+							{ value: 'git', label: 'Git' },
 							{ value: 'tailwind', label: 'Tailwind' },
 							{ value: 'react-native', label: 'React Native' },
 							{ value: 'mongo-db', label: 'Mongo DB' },
@@ -79,6 +87,12 @@ export default defineConfig({
 						ui: {
 							timeFormat: 'HH:mm'
 						}
+					},
+					{
+						type: 'boolean',
+						name: 'published',
+						label: 'Published',
+						required: true
 					}
 				]
 			}

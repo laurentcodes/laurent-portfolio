@@ -3,18 +3,21 @@ import { client } from '../../../tina/__generated__/client';
 
 import { formatDate } from '../../utils/formatDate';
 
+import { Post } from '../../../tina/__generated__/types.ts'
+
 import Layout from '../../layouts/Layout.astro';
 
 const postsRes = await client.queries.postConnection();
 
 const posts = postsRes.data.postConnection.edges
-	?.map((post: any) => {
+	?.map((post: Post) => {
 		return {
 			title: post?.node?.title,
 			summary: post?.node?.summary.children[0].children[0].text,
 			slug: post?.node?._sys.filename,
 			tags: post?.node?.tags,
-			posted: post?.node?.posted
+			posted: post?.node?.posted,
+      published: post?.node?.published
 		};
 	})
 	.sort((a, b) => new Date(b.posted).getTime() - new Date(a.posted).getTime());
@@ -35,7 +38,7 @@ const posts = postsRes.data.postConnection.edges
 		}
 
 		{
-			posts?.map((post) => (
+			posts?.filter(post => post.published === true).map((post) => (
 				<div class='flex flex-col py-3'>
 					<p class='text-yellow-500 text-sm mb-1'>
 						{formatDate(post?.posted || '')}

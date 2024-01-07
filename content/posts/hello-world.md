@@ -4,6 +4,7 @@ summary: "welcome to my blog, i plan to do a little bit of writing this year so 
 tags:
   - general
 posted: 2024-01-05T15:00:00.000Z
+published: true
 ---
 
 welcome to my blog, i plan to do a little bit of writing this year so let's see how it goes 😅

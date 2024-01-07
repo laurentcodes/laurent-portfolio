@@ -10,6 +10,7 @@ tags:
   - css
   - guide
 posted: 2024-01-06T19:00:00.000Z
+published: true
 ---
 
 after publishing my blog and the introduction post, having dark mode was suggested to me and i jumped right into it, since the site is using tailwind, implementing this was quite straight forward and interesting.
