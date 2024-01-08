@@ -1,5 +1,8 @@
 ---
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { MarkdownComp } from '../../components/MarkdownComp';
+
+import { getFile } from '../../utils/get-file';
 
 import { client } from '../../../tina/__generated__/client';
 
@@ -16,7 +19,33 @@ const url = Astro.url.href;
 const singlePostRes = await client.queries.post({ relativePath: `${post}.md` });
 const singlePost = singlePostRes.data.post;
 
+const postMarkdown = getFile(post);
+
+const deleteContent = (markdown) => {
+	const startDelimiter = '---';
+	const endDelimiter = '---';
+
+	const startIndex = markdown.indexOf(startDelimiter);
+	const endIndex = markdown.indexOf(
+		endDelimiter,
+		startIndex + startDelimiter.length
+	);
+
+	if (startIndex !== -1 && endIndex !== -1) {
+		const startPart = markdown.substring(0, startIndex);
+		const endPart = markdown.substring(endIndex + endDelimiter.length);
+		const updatedMarkdown = startPart + endPart;
+		return updatedMarkdown;
+	} else {
+		return 'Unable to find content between delimiters';
+	}
+};
+
+const newMark = deleteContent(postMarkdown);
+
 const formattedDate = formatDateTime(singlePost.posted);
+
+const markdown = '### Hi, *Pluto*!';
 ---
 
 <Layout
@@ -35,7 +64,8 @@ const formattedDate = formatDateTime(singlePost.posted);
 		</div>
 
 		<div class='cms-content my-12'>
-			<TinaMarkdown content={singlePost.body} />
+			<!-- <TinaMarkdown content={singlePost.body} /> -->
+			<MarkdownComp content={newMark} />
 		</div>
 
 		{
