@@ -2,7 +2,7 @@
 title: Implementing Dark Mode
 summary: >
   implemented a dark mode solution on this website, the explanation is not tied
-  to a framework and can be adapted to work on any javascript framwork with
+  to a framework and can be adapted to work on any javascript framework with
   tailwind installed.
 tags:
   - javascript
