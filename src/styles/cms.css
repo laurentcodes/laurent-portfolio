@@ -1,4 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .cms-content {
+	@apply text-sm md:text-base;
+
+	h1,
+	h2,
+	h3 {
+		@apply mt-4 text-[#4d56db] font-bold;
+	}
+
+	h1 {
+		@apply text-5xl;
+	}
+
+	h2 {
+		@apply text-4xl;
+	}
+
+	h3 {
+		@apply text-3xl;
+	}
+
+	p {
+		@apply my-2;
+	}
+
+	p:has(> img) {
+		@apply flex justify-center items-center;
+
+		img {
+			@apply my-4 w-full md:w-fit;
+		}
+	}
+
+	p > a {
+		@apply text-blue-300 py-3 block text-sm md:text-base;
+	}
+
+	ul {
+		@apply list-disc p-2;
+	}
+
+	ol {
+		@apply list-decimal p-2;
+	}
+
+	code {
+		@apply bg-black py-3 px-5 my-5 font-['Roboto_Mono'] text-[#f4d03f] overflow-x-auto block text-sm;
+	}
+
+	blockquote {
+		@apply italic border-l-2 border-l-gray-400 ml-4 my-3 px-3;
+	}
+}
+
+/* .cms-content {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -93,4 +151,4 @@
 	@media only screen and (max-width: 600px) {
 		font-size: 14px;
 	}
-}
+} */
