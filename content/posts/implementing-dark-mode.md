@@ -67,3 +67,5 @@ once this is set in place; we are now set to go ahead and make use of the tailwi
 ```html
 <main class="bg-white dark:bg-red-500">...</main>
 ```
+
+and for this particular website; the color mode changes according to the color scheme of your device, as detected from the watcher above.
