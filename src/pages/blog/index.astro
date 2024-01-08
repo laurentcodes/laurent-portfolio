@@ -3,21 +3,19 @@ import { client } from '../../../tina/__generated__/client';
 
 import { formatDate } from '../../utils/formatDate';
 
-import { Post } from '../../../tina/__generated__/types.ts'
-
 import Layout from '../../layouts/Layout.astro';
 
 const postsRes = await client.queries.postConnection();
 
 const posts = postsRes.data.postConnection.edges
-	?.map((post: Post) => {
+	?.map((post: any) => {
 		return {
 			title: post?.node?.title,
 			summary: post?.node?.summary.children[0].children[0].text,
 			slug: post?.node?._sys.filename,
 			tags: post?.node?.tags,
 			posted: post?.node?.posted,
-      published: post?.node?.published
+			published: post?.node?.published
 		};
 	})
 	.sort((a, b) => new Date(b.posted).getTime() - new Date(a.posted).getTime());
@@ -38,34 +36,36 @@ const posts = postsRes.data.postConnection.edges
 		}
 
 		{
-			posts?.filter(post => post.published === true).map((post) => (
-				<div class='flex flex-col py-3'>
-					<p class='text-yellow-500 text-sm mb-1'>
-						{formatDate(post?.posted || '')}
-					</p>
+			posts
+				?.filter((post) => post.published === true)
+				.map((post) => (
+					<div class='flex flex-col py-3'>
+						<p class='text-yellow-500 text-sm mb-1'>
+							{formatDate(post?.posted || '')}
+						</p>
 
-					<h3 class='font-bold hover:text-blue-800 transition-all ease-in duration-150'>
-						<a href={`/blog/${post.slug}`}>{post.title}</a>
-					</h3>
+						<h3 class='font-bold hover:text-blue-800 transition-all ease-in duration-150'>
+							<a href={`/blog/${post.slug}`}>{post.title}</a>
+						</h3>
 
-					<p class='text-gray-400 md:w-[80%] text-sm md:text-base'>
-						{post.summary}
-					</p>
+						<p class='text-gray-400 md:w-[80%] text-sm md:text-base'>
+							{post.summary}
+						</p>
 
-					{post.tags && (
-						<span class='flex text-sm'>
-							<p class='italic mr-2'>tags:</p>
+						{post.tags && (
+							<span class='flex text-sm'>
+								<p class='italic mr-2'>tags:</p>
 
-							{post.tags.map((tag: string, index: number) => (
-								<p class='text-blue-400'>
-									{index ? ',' : ''}
-									{tag}
-								</p>
-							))}
-						</span>
-					)}
-				</div>
-			))
+								{post.tags.map((tag: string, index: number) => (
+									<p class='text-blue-400'>
+										{index ? ',' : ''}
+										{tag}
+									</p>
+								))}
+							</span>
+						)}
+					</div>
+				))
 		}
 	</main>
 </Layout>

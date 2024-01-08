@@ -1,21 +1,21 @@
 export const formatDate = (date: string) => {
-	const originalDate = new Date(date);
+	const originalDate: Date = new Date(date);
 
-	const dateFormatter = new Intl.DateTimeFormat('en-US', {
+	const dateFormatter: Intl.DateTimeFormat = new Intl.DateTimeFormat('en-US', {
 		month: 'long',
 		day: 'numeric',
 		year: 'numeric'
 	});
 
-	const formattedDate = dateFormatter.format(originalDate);
+	const formattedDate: string = dateFormatter.format(originalDate);
 
 	return formattedDate;
 };
 
 export const formatDateTime = (date: string) => {
-	const originalDate = new Date(date);
+	const originalDate: Date = new Date(date);
 
-	const dateFormatter = new Intl.DateTimeFormat('en-US', {
+	const dateFormatter: Intl.DateTimeFormat = new Intl.DateTimeFormat('en-US', {
 		month: 'long',
 		day: 'numeric',
 		year: 'numeric',
@@ -23,7 +23,7 @@ export const formatDateTime = (date: string) => {
 		minute: '2-digit'
 	});
 
-	const formattedDate = dateFormatter.format(originalDate);
+	const formattedDate: string = dateFormatter.format(originalDate);
 
 	return formattedDate;
 };
