@@ -1,7 +1,7 @@
 ---
 import { Markdown } from '../../components/Markdown';
 
-import { getFile } from '../../utils/get-file';
+import { getPost } from '../../utils/get-file';
 
 import { client } from '../../../tina/__generated__/client';
 
@@ -19,7 +19,7 @@ const url = Astro.url.href;
 const singlePostRes = await client.queries.post({ relativePath: `${post}.md` });
 const singlePost = singlePostRes.data.post;
 
-const postMarkdown = getFile(post);
+const postMarkdown = getPost(post);
 
 const postMarkdownFormatted = removeMarkdownDelimiter(postMarkdown);
 
