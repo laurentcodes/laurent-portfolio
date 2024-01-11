@@ -11,3 +11,9 @@ export function getPost(fileName: string) {
 		'utf-8'
 	);
 }
+
+export function getOGImagePath(name: string) {
+  const fullPath = path.join(process.cwd(), 'public', 'og-images', name + '.png');
+
+  return fullPath;
+}
