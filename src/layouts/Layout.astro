@@ -9,7 +9,7 @@ export interface Props {
 	url: string;
 }
 
-const { title, description, url } = Astro.props;
+const { title, description, url, image } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,7 +26,7 @@ const { title, description, url } = Astro.props;
 		<meta property='og:description' content={description} />
 		<meta
 			property='og:image'
-			content='https://laurentcodes.xyz/_astro/laurent-memoji-1.d4b9bfae.svg'
+			content={image}
 		/>
 		<meta property='og:url' content={url} />
 
