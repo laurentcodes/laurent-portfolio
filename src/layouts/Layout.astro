@@ -27,6 +27,7 @@ const ogImagePath = `${Astro.url.origin}/og-images/${image}.png`;
 		<meta name='viewport' content='width=device-width' />
 		<meta name='generator' content={Astro.generator} />
 
+    <!-- Open Graph -->
 		<meta property='og:title' content={title} />
 		<meta property='og:description' content={description} />
 		<meta
@@ -35,7 +36,13 @@ const ogImagePath = `${Astro.url.origin}/og-images/${image}.png`;
 		/>
 		<meta property='og:url' content={url} />
 
-		<title>{title}</title>
+    <!-- Twitter -->
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>		
+    <meta name="twitter:image" content={image}>
+    <meta name="twitter:url" content={url}>
+		
+    <title>{title}</title>
 
 		<!-- Google tag (gtag.js) -->
 		<script
