@@ -13,7 +13,7 @@ export function getPost(fileName: string) {
 }
 
 export function getOGImagePath(name: string) {
-  const fullPath = path.join(process.cwd(), 'public', 'og-images', name + '.png');
+  const fullPath = path.join(process.cwd(), 'src', 'images', 'og-images', name + '.png');
 
   return fullPath;
 }
