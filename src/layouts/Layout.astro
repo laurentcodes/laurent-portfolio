@@ -14,7 +14,7 @@ export interface Props {
 
 const { title, description, url, image } = Astro.props;
 
-const ogImagePath = `${Astro.url.origin}/public/og-images/${image}.png`;
+const ogImagePath = `${Astro.url.origin}/og-images/${image}.png`;
 
 console.log(ogImagePath, 'og');
 ---
