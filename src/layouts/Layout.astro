@@ -1,15 +1,20 @@
 ---
 import Navbar from '../components/Navbar.astro';
 
+import { getOGImagePath } from '../utils/get-file.ts';
+
 import '@fontsource/sen';
 import '@fontsource/roboto-mono';
+
 export interface Props {
 	title: string;
 	description: string;
 	url: string;
 }
 
-const { title, description, url } = Astro.props;
+const { title, description, url, image, type } = Astro.props;
+
+const ogImagePath = `${Astro.url.origin}/og-images/${image}.png`;
 ---
 
 <!doctype html>
@@ -22,15 +27,23 @@ const { title, description, url } = Astro.props;
 		<meta name='viewport' content='width=device-width' />
 		<meta name='generator' content={Astro.generator} />
 
-		<meta property='og:title' content={title} />
+    <!-- Open Graph -->
+  	<meta property='og:type' content={type} />
+    <meta property='og:title' content={title} />	
 		<meta property='og:description' content={description} />
 		<meta
 			property='og:image'
-			content='https://laurentcodes.xyz/_astro/laurent-memoji-1.d4b9bfae.svg'
+			content={ogImagePath}
 		/>
 		<meta property='og:url' content={url} />
 
-		<title>{title}</title>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />		
+    <meta name="twitter:image" content={ogImagePath} />
+		
+    <title>{title}</title>
 
 		<!-- Google tag (gtag.js) -->
 		<script

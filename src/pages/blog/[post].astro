@@ -30,6 +30,8 @@ const formattedDate = formatDateTime(singlePost.posted);
 	title={`Laurent. | Blog - ${singlePost.title}`}
 	description={singlePost.summary.children[0].children[0].text}
 	url={url}
+  image={`posts/${post}`}
+  type='article'
 >
 	<main class='md:px-36 md:py-12'>
 		<div class='mb-2'>

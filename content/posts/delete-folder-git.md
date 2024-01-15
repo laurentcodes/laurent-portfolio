@@ -6,8 +6,8 @@ summary: >
 tags:
   - tips
   - git
-posted: 2024-01-08T13:08:00.000Z
-published: false
+posted: 2024-01-11T08:25:00.000Z
+published: true
 ---
 
 if you're as clumsy as i am and this happens to you often; you'd be needing this a lot.
