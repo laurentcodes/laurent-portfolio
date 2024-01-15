@@ -1,8 +1,6 @@
 ---
 import Navbar from '../components/Navbar.astro';
 
-import { getOGImagePath } from '../utils/get-file.ts';
-
 import '@fontsource/sen';
 import '@fontsource/roboto-mono';
 
@@ -10,6 +8,8 @@ export interface Props {
 	title: string;
 	description: string;
 	url: string;
+	image: string;
+	type: string;
 }
 
 const { title, description, url, image, type } = Astro.props;
