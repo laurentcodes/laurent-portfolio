@@ -5,6 +5,8 @@ import react from '@astrojs/react';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 
+import { generatePostsMap } from './src/utils/get-file.ts';
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://laurentcodes.xyz',
@@ -14,9 +16,10 @@ export default defineConfig({
 		}),
 		react(),
 		partytown(),
-		sitemap()
+		sitemap({
+			customPages: generatePostsMap()
+		})
 	],
 	output: 'server',
 	adapter: netlify()
 });
-

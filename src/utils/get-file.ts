@@ -11,3 +11,13 @@ export function getPost(fileName: string) {
 		'utf-8'
 	);
 }
+
+export function generatePostsMap() {
+	const posts = fs.readdirSync(path.join(process.cwd(), 'content', 'posts'));
+
+	const formatPosts = posts.map(
+		(post) => 'https://laurentcodes.xyz/blog/' + post.slice(0, -3)
+	);
+
+	return formatPosts;
+}
