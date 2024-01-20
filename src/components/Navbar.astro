@@ -1,21 +1,13 @@
 ---
 const path = Astro.url.pathname;
-
-import ThemeToggle from './ThemeToggle';
 ---
 
 <main
-	class='md:px-12 flex flex-col md:flex-row justify-between h-[130px] md:h-[50px] items-center sticky top-0 left-0 right-0 bg-white dark:bg-gray-900 bg-opacity-60 dark:bg-opacity-60 py-3'
+	class='md:px-12 flex flex-col md:flex-row justify-between h-[80px] md:h-[50px] items-center sticky top-0 left-0 right-0 bg-white dark:bg-gray-900 bg-opacity-60 dark:bg-opacity-60 py-3'
 >
-	<div class='flex flex-col justify-center items-center'>
-		<span class='hover:cursor-pointer block md:hidden'>
-			<ThemeToggle client:load />
-		</span>
-
-		<h2 id='logo' class='font-bold text-xl hover:cursor-pointer mb-4'>
-			<a href='/'>Laurent. 👋</a>
-		</h2>
-	</div>
+	<h2 id='logo' class='font-bold text-xl hover:cursor-pointer'>
+		<a href='/'>Laurent. 👋</a>
+	</h2>
 
 	{
 		path.startsWith('/blog') && (
@@ -27,7 +19,7 @@ import ThemeToggle from './ThemeToggle';
 
 	{
 		!path.startsWith('/blog') && (
-			<ul class='flex gap-6 justify-center items-center'>
+			<ul class='flex gap-6'>
 				<>
 					<li class='hover:cursor-pointer hover:underline text-sm md:text-base'>
 						About
@@ -43,9 +35,6 @@ import ThemeToggle from './ThemeToggle';
 					</li>
 					<li class='hover:cursor-pointer hover:underline text-sm md:text-base'>
 						<a href='/blog'>Blog</a>
-					</li>
-					<li class='hover:cursor-pointer hidden md:block'>
-						<ThemeToggle client:load />
 					</li>
 				</>
 			</ul>

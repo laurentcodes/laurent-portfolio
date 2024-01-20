@@ -21,10 +21,10 @@ const ogImagePath = `${Astro.url.origin}/og-images/${image}.png`;
 <html lang='en'>
 	<head>
 		<link rel='icon' type='image/svg+xml' href='/favicon.ico' />
-
-		<link rel='sitemap' href='/sitemap-index.xml' />
-
-		<meta charset='UTF-8' />
+    
+    <link rel="sitemap" href="/sitemap-index.xml" />
+		
+    <meta charset='UTF-8' />
 		<meta name='description' content="Laurent's Portfolio" />
 		<meta name='viewport' content='width=device-width' />
 		<meta name='generator' content={Astro.generator} />
@@ -44,11 +44,6 @@ const ogImagePath = `${Astro.url.origin}/og-images/${image}.png`;
 
 		<title>{title}</title>
 
-		<!-- Iconify -->
-		<script
-			src='https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js'
-		></script>
-
 		<!-- Google tag (gtag.js) -->
 		<script
 			type='text/partytown'
@@ -66,33 +61,7 @@ const ogImagePath = `${Astro.url.origin}/og-images/${image}.png`;
 			gtag('config', 'G-DL68MLB6F9');
 		</script>
 
-		<!-- Dark Mode -->
 		<script is:inline>
-			const theme = (() => {
-				if (
-					typeof localStorage !== 'undefined' &&
-					localStorage.getItem('laurentcodes.theme')
-				) {
-					return localStorage.getItem('laurentcodes.theme');
-				}
-
-				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					return 'dark';
-				}
-
-				return 'light';
-			})();
-
-			if (theme === 'light') {
-				document.documentElement.classList.remove('dark');
-			} else {
-				document.documentElement.classList.add('dark');
-			}
-
-			window.localStorage.setItem('laurentcodes.theme', theme);
-		</script>
-
-		<!-- <script is:inline>
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 			const applyDarkMode = () => {
 				const applyDark = () => {
@@ -128,7 +97,7 @@ const ogImagePath = `${Astro.url.origin}/og-images/${image}.png`;
 
 			// Whenever the user explicitly chooses to respect the OS preference
 			localStorage.removeItem('theme');
-		</script> -->
+		</script>
 	</head>
 	<body class='p-6 flex flex-col dark:bg-gray-900 dark:text-white'>
 		<Navbar />
